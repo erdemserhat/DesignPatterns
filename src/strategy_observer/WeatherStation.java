@@ -1,4 +1,4 @@
-package task1;
+package strategy_observer;
 
 import java.util.ArrayList;
 

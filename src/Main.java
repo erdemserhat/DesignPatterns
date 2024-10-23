@@ -1,7 +1,4 @@
-import task1.PhoneDisplay;
-import task1.TemperatureStrategy;
-import task1.WeatherStation;
-import task1.WindowsDisplay;
+import decorator.*;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
@@ -78,6 +75,26 @@ public class Main {
 
 
          */
+
+
+        /////////////////////////////////////////////////////////////////////////////
+
+        //ComputerContract basicComputer = new ComputerConcrete();
+        //ComputerDecorator decorator = new ComputerDecorator(basicComputer);
+        //System.out.println(decorator.getDescription());
+        //ComputerContract graphicCardComputer = new ComputerWithGraphicalCard(basicComputer);
+        //System.out.println(graphicCardComputer.getDescription());
+
+        ComputerContract computer = new ComputerConcrete();
+        ComputerContract computerWithRam = new ComputerWithExtraRam(computer,16);
+        System.out.println(computerWithRam.getDescription());
+
+        ComputerContract computerMix = new ComputerWithGraphicalCard(computerWithRam);
+        System.out.println(computerMix.getDescription());
+
+        ComputerContract computerMix2 = new ComputerWithExtraLargeScreen(computerMix,17.5);
+        System.out.println(computerMix2.getDescription());
+
 
 
         

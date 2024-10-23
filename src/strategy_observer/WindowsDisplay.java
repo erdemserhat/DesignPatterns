@@ -1,4 +1,4 @@
-package task1;
+package strategy_observer;
 
 public class WindowsDisplay  implements  WeatherObserver{
     private Double temperatureValue=0.0;
