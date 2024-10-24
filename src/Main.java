@@ -1,4 +1,15 @@
-import decorator.*;
+import factory.abstractfactory.Application;
+import factory.abstractfactory.GUIFactory;
+import factory.abstractfactory.MacGUIFactory;
+import factory.abstractfactory.WindowsGUIFactory;
+import factory.abstractmethod.PhoneSeller;
+import factory.abstractmethod.PhoneSellerContract;
+import factory.abstractmethod.phone.PhoneContract;
+import factory.abstractmethod.phone.PhoneType;
+import factory.simplefactory.computer.ComputerContract;
+import factory.simplefactory.ComputerSeller;
+import factory.simplefactory.ComputerSellerContract;
+import factory.simplefactory.computer.ComputerType;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
@@ -77,7 +88,8 @@ public class Main {
          */
 
 
-        /////////////////////////////////////////////////////////////////////////////
+        //////////////////////////////////decorator///////////////////////////////////////////
+        /*
 
         //ComputerContract basicComputer = new ComputerConcrete();
         //ComputerDecorator decorator = new ComputerDecorator(basicComputer);
@@ -95,9 +107,39 @@ public class Main {
         ComputerContract computerMix2 = new ComputerWithExtraLargeScreen(computerMix,17.5);
         System.out.println(computerMix2.getDescription());
 
+         */
 
 
-        
+        //////////////////////////////simple factory///////////////////////////////////////////////
+        /*
+
+        ComputerSellerContract computerSellerContract = new ComputerSeller();
+        ComputerContract computer = computerSellerContract.sellComputer(ComputerType.GAME_COMPUTER);
+        System.out.println(computer.getDescription());
+
+         */
+
+        /////////////////////////////////factory method////////////////////////////////////////////
+        /*
+        PhoneSellerContract seller = new PhoneSeller();
+        PhoneContract phone = seller.buyPhone(PhoneType.LENOVO);
+        System.out.println(phone.getDescription());
+       ////////////////////////////////////////////////////////////////////////////////////////////
+         */
+
+        GUIFactory windowsGUIFactory = new WindowsGUIFactory();
+        GUIFactory macGUIFactory = new MacGUIFactory();
+        Application windowsApplication = new Application(windowsGUIFactory);
+        Application macApplication = new Application(macGUIFactory);
+
+        macApplication.render();
+
+
+
+
+
+
+
 
 
     }
